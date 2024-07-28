@@ -1,0 +1,8 @@
+{% extends 'youtube/base.html'%}
+
+{% block content%}
+<form action=""  method="POST">
+<button type="submit" class="btn btn-dark">削除</button>
+{%csrf_token%}
+</form>
+{% endblock%}   

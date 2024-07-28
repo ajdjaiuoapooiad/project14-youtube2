@@ -14,3 +14,7 @@ class CreateView(generic.CreateView):
     model=Post
     form_class=PostCreateForm
     success_url=reverse_lazy('youtube:index')
+    
+class DeleteView(generic.DeleteView):
+    model=Post
+    success_url=reverse_lazy('youtube:index')
