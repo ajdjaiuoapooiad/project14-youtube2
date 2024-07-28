@@ -2,7 +2,7 @@
 
 {% block content%}
 {% for post in post_list%}
-{{post.title}}
+<a href="{% url 'youtube:detail' post.pk%}">{{post.title}}</a>
 <img class="img-thumbnail" src="{{post.thumbnail.url}}" alt="">
 {%endfor%}
 {% endblock%}   

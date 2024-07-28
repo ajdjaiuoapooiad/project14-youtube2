@@ -1,0 +1,15 @@
+{% extends 'youtube/base.html'%}
+
+{% block content%}
+
+<form action="" method="POST">
+    {% for field in form%}
+    <p>{{field.label_tag}}</p>
+    <p>{{field}}</p>
+    
+    {%endfor%}
+    {%csrf_token%}
+<button class="btn btn-dark">送信</button>
+</form>
+
+{% endblock%}   
