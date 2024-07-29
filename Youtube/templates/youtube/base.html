@@ -40,7 +40,9 @@
         </form>
         
         {% if user.is_authenticated %}
-        <a href="" class="btn btn-dark">{{user.get_username}}</a>
+        <a href="" class="btn btn-dark">{{user.get_username}}でログイン中</a>
+        {%else%}
+        <a href="{% url 'youtube:login'%}" class="btn btn-dark">ログイン</a>
         {%endif%}
       </div>
     </nav>
