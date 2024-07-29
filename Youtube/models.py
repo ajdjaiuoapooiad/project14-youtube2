@@ -12,3 +12,14 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Comment(models.Model):
+    title=models.CharField('タイトル',max_length=30)
+    text=models.TextField('本文')
+    good=models.IntegerField('いいね',default=0)
+    usertext=models.CharField(max_length=30,default='a')
+    username=models.CharField(max_length=30,default='a')
+    created_at=models.DateTimeField('日付',auto_now_add=True)
+    
+    def __str__(self):
+        return self.title

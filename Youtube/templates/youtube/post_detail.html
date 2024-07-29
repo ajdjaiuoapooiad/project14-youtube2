@@ -1,9 +1,23 @@
 {% extends 'youtube/base.html'%}
 
+
+
 {% block content%}
-{{post.title}}
-{{post.text}}
-<div class="embed-responsive embed-responsive-16by9">
-    <video controls class="embed-responsive-item" src="{{post.movie.url}}"></video>
+<div class="row">
+    <div class="col-9">
+        {{post.title}}
+        {{post.text}}
+        <div class="embed-responsive embed-responsive-16by9">
+            <video controls class="embed-responsive-item" src="{{post.movie.url}}"></video>
+        </div>
+
+        <h4 class="btn btn-dark">コメント一覧</h4>
+    </div>
+    
+    <div class="col-3">
+        <p>おすすめ一覧</p>
+    </div>
 </div>
+
+
 {% endblock%}   

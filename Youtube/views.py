@@ -14,9 +14,9 @@ class IndexView(LoginRequiredMixin,generic.ListView):
     login_url='youtube:login'
     
 def detailfunc(request,pk):
-    post = get_object_or_404(Post, pk=pk)
-    post.read += 1 #閲覧数をインクリメント
-    post.save()
+    post2 = get_object_or_404(Post, pk=pk)
+    post2.read += 1 #閲覧数をインクリメント
+    post2.save()
     return render(request,'youtube/post_detail.html')
     
 class CreateView(generic.CreateView):
@@ -71,5 +71,9 @@ def goodfunc(request,pk):
         post.usertext=post.usertext + ' ' + post2
         post.save()
         return redirect('youtube:index')
+    
+def mypagefunc(request,pk):
+    user = User.objects.get(pk=pk)
+    return render(request,'youtube/mypage.html')
     
    

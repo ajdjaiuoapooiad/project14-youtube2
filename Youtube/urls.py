@@ -14,5 +14,7 @@ urlpatterns = [
     path('login/',views.loginfunc,name='login'),
     path('logout/',views.logoutfunc,name='logout'),
     path('good/<int:pk>',views.goodfunc,name='good'),
+    path('mypage/<int:pk>',views.mypagefunc,name='mypage'),
+    
     
 ]
