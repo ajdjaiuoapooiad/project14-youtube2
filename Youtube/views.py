@@ -29,5 +29,10 @@ def signupfunc(request):
     if request.method=='POST':
         username2=request.POST['username']
         password2=request.POST['password']
-        user = User.objects.create_user(username2, "", password2)
+        try:
+            User.objects.get(username=username2)
+            return render(request,'youtube/signup.html',{'error':'このユーザーはすでに使用されています'})
+        except:
+            user = User.objects.create_user(username2, "", password2)
+            return redirect('youtube:index')
     return render(request,'youtube/signup.html',{'some':100})
