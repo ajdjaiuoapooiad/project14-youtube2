@@ -6,9 +6,12 @@ from .forms  import PostCreateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class IndexView(generic.ListView):
+
+class IndexView(LoginRequiredMixin,generic.ListView):
     model=Post
+    login_url='youtube:login'
     
 def detailfunc(request,pk):
     post = get_object_or_404(Post, pk=pk)
