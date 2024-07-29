@@ -3,6 +3,7 @@ from django.views import generic
 from .models import Post
 from django.urls import reverse_lazy
 from .forms  import PostCreateForm
+from django.contrib.auth.models import User
 
 class IndexView(generic.ListView):
     model=Post
@@ -23,3 +24,10 @@ class UpdateView(generic.UpdateView):
     model=Post
     form_class=PostCreateForm
     success_url=reverse_lazy('youtube:index')
+    
+def signupfunc(request):
+    if request.method=='POST':
+        username2=request.POST['username']
+        password2=request.POST['password']
+        user = User.objects.create_user(username2, "", password2)
+    return render(request,'youtube/signup.html',{'some':100})
