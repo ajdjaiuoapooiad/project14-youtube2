@@ -54,3 +54,16 @@ def loginfunc(request):
 def logoutfunc(request):
     logout(request)
     return redirect('youtube:index')
+
+def goodfunc(request,pk):
+    post=Post.objects.get(pk=pk)
+    post2=request.user.get_username()
+    if post2 in post.usertext:
+        return redirect('youtube:index')
+    else:
+        post.good+=1
+        post.usertext=post.usertext + ' ' + post2
+        post.save()
+        return redirect('youtube:index')
+    
+   
