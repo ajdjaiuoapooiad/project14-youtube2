@@ -16,6 +16,7 @@ class Post(models.Model):
 class Comment(models.Model):
     title=models.CharField('タイトル',max_length=30)
     text=models.TextField('本文')
+    post=models.ForeignKey(Post,verbose_name='紐付け',on_delete=models.PROTECT,null=True,blank=True)
     good=models.IntegerField('いいね',default=0)
     usertext=models.CharField(max_length=30,default='a')
     username=models.CharField(max_length=30,default='a')

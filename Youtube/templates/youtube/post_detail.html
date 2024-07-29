@@ -11,7 +11,13 @@
             <video controls class="embed-responsive-item" src="{{post.movie.url}}"></video>
         </div>
 
-        <h4 class="btn btn-dark">コメント一覧</h4>
+        <h4 class="mb-5">コメント一覧</h4>
+        <a href="{% url 'youtube:comment' post.pk%}" class="btn btn-dark">投稿する</a>
+        {% for comment in post.comment_set.all%}
+        <p>{{comment.title}}</p>
+        <p>{{comment.text}}</p>
+
+        {%endfor%}
     </div>
     
     <div class="col-3">

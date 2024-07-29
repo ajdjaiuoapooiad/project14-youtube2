@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views import generic
-from .models import Post
+from .models import Post,Comment
 from django.urls import reverse_lazy
-from .forms  import PostCreateForm
+from .forms  import PostCreateForm,CommentCreateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import get_object_or_404
@@ -75,5 +75,14 @@ def goodfunc(request,pk):
 def mypagefunc(request,pk):
     user = User.objects.get(pk=pk)
     return render(request,'youtube/mypage.html')
-    
+
+class CommentView(generic.CreateView):
+    model=Comment
+    form_class=CommentCreateForm
+    def form_valid(self,form):
+        post_pk=self.kwargs['post_pk']
+        comment=form.save(commit=False)
+        comment.post=get_object_or_404(Post,pk=post_pk)
+        comment.save()
+        return redirect('youtube:detail',pk=post_pk)
    

@@ -15,6 +15,6 @@ urlpatterns = [
     path('logout/',views.logoutfunc,name='logout'),
     path('good/<int:pk>',views.goodfunc,name='good'),
     path('mypage/<int:pk>',views.mypagefunc,name='mypage'),
-    
+    path('comment/<int:post_pk>',views.CommentView.as_view(),name='comment'),
     
 ]

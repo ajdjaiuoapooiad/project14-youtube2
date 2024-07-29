@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post,Comment
 
 
 class PostCreateForm(forms.ModelForm):
@@ -10,4 +10,10 @@ class PostCreateForm(forms.ModelForm):
         
         def __str__(self):
             return self.title
+        
+class CommentCreateForm(forms.ModelForm):
+    class Meta:
+        model=Comment
+        fields=['title','text']
+        
     
