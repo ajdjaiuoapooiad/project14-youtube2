@@ -4,7 +4,7 @@ from .models import Post
 from django.urls import reverse_lazy
 from .forms  import PostCreateForm
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 class IndexView(generic.ListView):
     model=Post
@@ -48,6 +48,8 @@ def loginfunc(request):
             return redirect('youtube:index')
         else:
             return render(request,'youtube/signup.html',{'error':'登録されていません'})
-        
-    
     return render(request,'youtube/login.html')
+
+def logoutfunc(request):
+    logout(request)
+    return redirect('youtube:index')

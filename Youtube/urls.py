@@ -12,6 +12,6 @@ urlpatterns = [
     path('update/<int:pk>',views.UpdateView.as_view(),name='update'),
     path('signup/',views.signupfunc,name='signup'),
     path('login/',views.loginfunc,name='login'),
- 
+    path('logout/',views.logoutfunc,name='logout'),
     
 ]
