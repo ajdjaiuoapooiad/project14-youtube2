@@ -5,13 +5,16 @@ from django.urls import reverse_lazy
 from .forms  import PostCreateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import get_object_or_404
 
 class IndexView(generic.ListView):
     model=Post
     
-    
-class DetailView(generic.DetailView):
-    model=Post
+def detailfunc(request,pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.read += 1 #閲覧数をインクリメント
+    post.save()
+    return render(request,'youtube/post_detail.html')
     
 class CreateView(generic.CreateView):
     model=Post
