@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate,login,logout
 class IndexView(generic.ListView):
     model=Post
     
+    
 class DetailView(generic.DetailView):
     model=Post
     
