@@ -14,10 +14,10 @@ class IndexView(LoginRequiredMixin,generic.ListView):
     login_url='youtube:login'
     
 def detailfunc(request,pk):
-    post2 = get_object_or_404(Post, pk=pk)
-    post2.read += 1 #閲覧数をインクリメント
-    post2.save()
-    return render(request,'youtube/post_detail.html')
+    post=Post.objects.get(pk=pk)
+    post.read += 1 #閲覧数をインクリメント
+    post.save()
+    return render(request,'youtube/post_detail.html',{'post':post})
     
 class CreateView(generic.CreateView):
     model=Post
