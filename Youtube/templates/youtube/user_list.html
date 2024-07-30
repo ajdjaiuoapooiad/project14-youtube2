@@ -10,9 +10,11 @@
 
 
 <div class="relative">
+
+  <p class="absolute text1">{{user.username}}</p>
+  <a href="" class="btn btn-primary absolute text2">チャンネル登録</a>
   <img class="rounded-circle absolute" src="/media/media/image/kkrn_icon_user_1.png" alt="Circle image">
-  <p class="absolute">{{user.username}}</p>
-  <a href="" class="btn btn-primary absolute">チャンネル登録</a>
+  
 
 
   <img class="mypage-img" src="/media/media/image/pexels-eberhardgross-640781.jpg" alt="">
@@ -52,6 +54,8 @@
     </div>
     {%endfor%}
   </div>
+
+  {{user.username}}
 
 </div>
 

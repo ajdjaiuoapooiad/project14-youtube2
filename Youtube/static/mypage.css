@@ -18,8 +18,16 @@ body{
     position: relative;
     height:300px;
 }
-.absolute{
+.absolute.text1{
     position: absolute;
+    top:50px;
+    left:300px;
+    font-size:50px;
+}
+.absolute.text2{
+    position: absolute;
+    top:120px;
+    left:300px;
 }
 .rounded-circle {
     position: absolute;
