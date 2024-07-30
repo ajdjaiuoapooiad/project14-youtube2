@@ -41,9 +41,9 @@
 <div class="container mt-5">
   <div class="row">
     {% for post in post_list%}
-    <div class="card w-25 h-25 bg-dark text-white">
+    <div class="card bg-dark text-white col-3">
         
-        <img class="h-75 w-100" src="{{post.thumbnail.url}}" alt="Card image">
+        <img class="w-100 h-50" src="{{post.thumbnail.url}}" alt="Card image">
         <div class="card-body">
             <a href="{% url 'youtube:detail' post.pk%}">{{post.title}}</a>
             <a href="{% url 'youtube:delete' post.pk%}" class="btn btn-dark">削除</a>

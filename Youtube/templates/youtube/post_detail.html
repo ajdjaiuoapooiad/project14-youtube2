@@ -12,9 +12,11 @@
     <div class="col-9">
         {{post.title}}
         {{post.text}}
+        {% if post.movie %}
         <div class="embed-responsive embed-responsive-16by9">
             <video controls class="embed-responsive-item" src="{{post.movie.url}}"></video>
         </div>
+        {% endif%}
 
         <h4 class="mb-5">コメント一覧</h4>
         <a href="{% url 'youtube:comment' post.pk%}" class="btn btn-dark">投稿する</a>
