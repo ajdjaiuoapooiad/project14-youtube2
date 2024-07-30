@@ -8,8 +8,22 @@ body{
 .mypage-img{
     height: 230px;
     width: 100%;
+   
 }
-.rounded-circle{
+
+    
+    
+
+.relative {
+    position: relative;
+}
+.kasaneru a{
+    position: absolute;
+}
+.rounded-circle {
+    position: absolute;
     height:150px;
     width:150px;
+    top:30px;
+    left:30px;
 }
