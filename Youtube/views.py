@@ -85,4 +85,6 @@ class CommentView(generic.CreateView):
         comment.post=get_object_or_404(Post,pk=post_pk)
         comment.save()
         return redirect('youtube:detail',pk=post_pk)
-   
+    
+
+    

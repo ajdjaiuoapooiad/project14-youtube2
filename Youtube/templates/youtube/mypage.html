@@ -1,5 +1,17 @@
-{% extends 'youtube/base.html'%}
+{% extends 'youtube/base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' type='text/css' href="{% static 'mypage.css' %}">
+{% endblock customcss %}
 
 {% block content%}
 {{user.username}}
+
+<div id="img">
+    <img class="" src="/media/media/thumbnail/image04.jpg" alt="">
+</div>
+<div id=""></div>
+
+
 {% endblock%}   
