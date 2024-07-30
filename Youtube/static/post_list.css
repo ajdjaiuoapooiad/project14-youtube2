@@ -1,5 +1,12 @@
+body{
+    background-color: black;
+    color: white;
+   
+}
+
+
 
 .jumbotron{
-    height:230PX;
+    height:180px;
     margin-bottom:50px;
 }
