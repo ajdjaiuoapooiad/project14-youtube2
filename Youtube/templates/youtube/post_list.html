@@ -8,7 +8,7 @@
 {% block content%}
 <div class="container">
    
-    <div class="jumbotron bg-dark text-white">
+    <div class="jumbotron bg-dark text-white h-75 mt-3">
         <h4 class="display-3">動画を投稿してみよう！</h4>
         <p>お気に入りの動画を投稿してみよう。</p>
         <p class="lead">
@@ -17,20 +17,23 @@
     </div>
 
 
-<div class="row">
-    {% for post in post_list%}
-    <div class="card w-25 h-25 bg-dark text-white">
-        
-        <img class="h-75 w-100" src="{{post.thumbnail.url}}" alt="Card image">
-        <div class="card-body">
-            <a href="{% url 'youtube:detail' post.pk%}">{{post.title}}</a>
-            <a href="{% url 'youtube:delete' post.pk%}" class="btn btn-dark">削除</a>
-            <a href="{% url 'youtube:update' post.pk%}" class="btn btn-dark">編集</a>
-            <a href="{% url 'youtube:good' post.pk%}" class="btn btn-dark">高評価{{post.good}}</a>
-            <a href="" class="btn btn-dark">閲覧数{{post.read}}</a>
-        </div>
+
+
+<p>おすすめ一覧</p>
+<div class="row"> 
+{% for post in post_list%}
+<div class="card w-25 h-25 bg-dark text-white">
+    
+    <img class="h-75 w-100" src="{{post.thumbnail.url}}" alt="Card image">
+    <div class="card-body">
+        <a href="{% url 'youtube:detail' post.pk%}">{{post.title}}</a>
+        <a href="{% url 'youtube:delete' post.pk%}" class="btn btn-dark">削除</a>
+        <a href="{% url 'youtube:update' post.pk%}" class="btn btn-dark">編集</a>
+        <a href="{% url 'youtube:good' post.pk%}" class="btn btn-dark">高評価{{post.good}}</a>
+        <a href="" class="btn btn-dark">閲覧数{{post.read}}</a>
     </div>
-    {%endfor%}
+</div>
+{%endfor%}
 </div>
 </div>
 
