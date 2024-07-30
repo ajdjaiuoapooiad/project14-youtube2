@@ -12,13 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class IndexView(LoginRequiredMixin,generic.ListView):
     model=Post
     login_url='youtube:login'
-    def get_queryset(self):
-        current_user = self.request.user.username # ログイン中のユーザ名を取得（CustomUserモデルのusernameレコードの値を取得）
-        user_data = User.objects.get(username=current_user) # QuerySet(条件が一致するレコードを全て取得)
-        if user_data:
-            queryset = Post.objects.filter(user_name=user_data).all() # QuerySet（一致するレコード全て取得）
-          
-        return queryset
+    
     
 def detailfunc(request,pk):
     post=Post.objects.get(pk=pk)
@@ -88,10 +82,20 @@ def goodfunc(request,pk):
         post.save()
         return redirect('youtube:index')
     
-def mypagefunc(request,pk):
-    user = User.objects.get(pk=pk)
+class MypageView(generic.ListView):
+    model=Post
+    model=User
+    template_name = "youtube/user_list.html"
+    
+    def get_queryset(self):
+        current_user = self.request.user.username # ログイン中のユーザ名を取得（CustomUserモデルのusernameレコードの値を取得）
+        user_data = User.objects.get(username=current_user) # QuerySet(条件が一致するレコードを全て取得)
+        if user_data:
+            queryset = Post.objects.filter(user_name=user_data).all() # QuerySet（一致するレコード全て取得）
+          
+        return queryset
 
-    return render(request,'youtube/mypage.html')
+    
 
 class CommentView(generic.CreateView):
     model=Comment
