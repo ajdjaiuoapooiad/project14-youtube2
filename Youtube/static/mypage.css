@@ -8,7 +8,7 @@ body{
     color: white;
 }
 
-.img{
-    height: auto;
+img{
+    height: 230px;
     width: 100%;
 }

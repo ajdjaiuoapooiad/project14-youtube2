@@ -1,7 +1,7 @@
 {% extends 'youtube/base.html'%}
 
 {% block content%}
-
+<div class="container">
 <h4>コメント</h4>
 <form action="" method="POST" enctype='multipart/form-data' >
     {% for field in form%}
@@ -12,5 +12,6 @@
     {%csrf_token%}
 <button type="submit" class="btn btn-dark">送信</button>
 </form>
+</div>
 
 {% endblock%}   

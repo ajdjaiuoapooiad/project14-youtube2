@@ -1,6 +1,21 @@
 {% extends 'youtube/base.html'%}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' type='text/css' href="{% static 'post_list.css' %}">
+{% endblock customcss %}
 
 {% block content%}
+<div class="container">
+   
+    <div class="jumbotron bg-dark text-white">
+        <h4 class="display-3">動画を投稿してみよう！</h4>
+        <p>お気に入りの動画を投稿してみよう。</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#!" role="button">Some action</a>
+        </p>
+    </div>
+
 
 <div class="row">
     {% for post in post_list%}
@@ -16,6 +31,7 @@
         </div>
     </div>
     {%endfor%}
+</div>
 </div>
 
 {% endblock%}   
