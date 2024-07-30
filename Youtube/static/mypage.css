@@ -1,14 +1,15 @@
-html,
-body {
-  height: 100%;
-}
+
 
 body{
     background-color: black;
     color: white;
 }
 
-img{
+.mypage-img{
     height: 230px;
     width: 100%;
+}
+.rounded-circle{
+    height:150px;
+    width:150px;
 }
