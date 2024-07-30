@@ -15,7 +15,7 @@ body{
 
 .relative{
     position: relative;
-    height: 500px;
+    height: 300px;
 }
 .absolute.text1{
     position: absolute;
@@ -29,6 +29,7 @@ body{
     left:300px;
 }
 .rounded-circle {
+    position: absolute;
     height:150px;
     width:150px;
     top:30px;
