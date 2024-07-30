@@ -16,8 +16,9 @@ body{
 
 .relative {
     position: relative;
+    height:300px;
 }
-.kasaneru a{
+.absolute{
     position: absolute;
 }
 .rounded-circle {
