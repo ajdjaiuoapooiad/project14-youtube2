@@ -23,6 +23,15 @@ class CreateView(generic.CreateView):
     model=Post
     form_class=PostCreateForm
     success_url=reverse_lazy('youtube:index')
+    def form_valid(self, form):
+      '''
+      フォームの保存(post)時にログインユーザをモデルに保存
+      '''
+      # ユーザーを投稿者として保存できるようにする
+      object = form.save(commit=False) #　入力値をモデルに保存せず保留
+      object.user_name = self.request.user # ログインユーザ取得
+      object.save() # モデルに保存
+      return super().form_valid(form)
     
 class DeleteView(generic.DeleteView):
     model=Post
