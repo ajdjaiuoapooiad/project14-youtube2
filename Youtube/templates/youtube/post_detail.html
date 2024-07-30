@@ -1,5 +1,9 @@
 {% extends 'youtube/base.html'%}
+{% load static %}
 
+{% block customcss %}
+<link rel='stylesheet' type='text/css' href="{% static 'post_list.css' %}">
+{% endblock customcss %}
 
 
 {% block content%}
