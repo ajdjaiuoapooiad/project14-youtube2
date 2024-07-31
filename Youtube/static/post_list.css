@@ -4,9 +4,10 @@ body{
    
 }
 
-
-
 .jumbotron{
     height:300px;
     margin-bottom:50px;
+}
+.dropdown{
+    margin-left: 200px;
 }
