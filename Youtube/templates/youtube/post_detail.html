@@ -10,13 +10,27 @@
 <div class="container">
 <div class="row">
     <div class="col-9">
-        {{post.title}}
-        {{post.text}}
+        
         {% if post.movie %}
         <div class="embed-responsive embed-responsive-16by9">
             <video controls class="embed-responsive-item" src="{{post.movie.url}}"></video>
         </div>
         {% endif%}
+
+    <div class="youtube-text">
+        <h4 class="">{{post.title}}</h4>
+        
+        <p>
+            <button class="btn btn-primary float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                続きを読む
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body text-dark">
+                {{post.text|linebreaksbr}}
+            </div>
+          </div>
+    </div>
 
         <div class="comment mb-3 border border-white">
         <h4 class="mt-3 ml-2 float-left">コメント一覧</h4>
