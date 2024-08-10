@@ -39,13 +39,14 @@
 
 
 <div class="container mt-5">
+  <h1 class="my-5">あなたの投稿一覧</h1>
   <div class="row">
     {% for post in post_list%}
     <div class="card bg-dark text-white col-sm-3 mb-3">
         
         <img class="h-75 w-100" src="{{post.thumbnail.url}}" alt="Card image">
         <div class="card-body row">
-          <a  href="{% url 'youtube:detail' post.pk%}">{{post.title}}</a>
+          <a  href="{% url 'youtube:detail' post.pk%}" class="text-white">{{post.title}}</a>
 
 
           <div class="dropdown">
